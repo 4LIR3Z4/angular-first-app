@@ -1,4 +1,4 @@
-<div class="backdrop"></div>
+<div class="backdrop"  (click)="NewTaskClose_Clicked()"></div>
 <dialog open>
   <h2>Add Task</h2>
   <form>
@@ -18,7 +18,9 @@
     </p>
 
     <p class="actions">
-      <button type="button">Cancel</button>
+      <button type="button" (click)="NewTaskClose_Clicked()">
+        Cancel
+      </button>
       <button type="submit">Create</button>
     </p>
   </form>

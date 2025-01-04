@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { DUMMY_TASKS } from '../dummy-tasks';
-import { NewTaskComponent } from "./new-task/new-task.component";
+import { NewTaskComponent } from './new-task/new-task.component';
 @Component({
   selector: 'app-tasks',
   imports: [TaskComponent, NewTaskComponent],
@@ -9,6 +9,9 @@ import { NewTaskComponent } from "./new-task/new-task.component";
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
+  onUserClosedNewTaskDialog($event: boolean) {
+    this.isAddingTask = false;
+  }
   tasks = DUMMY_TASKS;
   name = input.required<string>();
   userId = input.required<string>();
