@@ -1,7 +1,7 @@
 @if(isAddingTask){
 <app-new-task
   (hasUserClickedOnCloseButton)="onUserClosedNewTaskDialog($event)"
-></app-new-task>
+  (newTaskSubmitedData)="onNewTaskSubmitedData($event)" />
 }
 <section id="tasks">
   <header>

@@ -8,13 +8,14 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { User } from './user.model';
+import { CardComponent } from "../ui/card/card.component";
 // import { DUMMY_USERS } from '../dummy-users';
 
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
