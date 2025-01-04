@@ -1,6 +1,7 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewTask } from './newTask.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
@@ -10,7 +11,8 @@ import { NewTask } from './newTask.model';
 })
 export class NewTaskComponent {
   hasUserClickedOnCloseButton = output<boolean>();
-  newTaskSubmitedData = output<NewTask>();
+  userId = input.required<string>();
+  constructor(private tasksService: TasksService) {}
 
   NewTaskForm_Submitted() {
     const newTask: NewTask = {
@@ -18,7 +20,8 @@ export class NewTaskComponent {
       summary: this.newTaskSummary(),
       date: this.newTaskDate(),
     };
-    this.newTaskSubmitedData.emit(newTask);
+    this.tasksService.AddTask(newTask, this.userId());
+    this.hasUserClickedOnCloseButton.emit(true);
   }
   NewTaskClose_Clicked() {
     this.hasUserClickedOnCloseButton.emit(true);
