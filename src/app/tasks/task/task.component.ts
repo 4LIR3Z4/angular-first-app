@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Task } from './task.model';
 import { CardComponent } from '../../ui/card/card.component';
 import { DatePipe } from '@angular/common';
